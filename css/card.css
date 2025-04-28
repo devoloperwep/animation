@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212;
+}
+.card {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: url("../image/bgImg.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.card .img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateZ(175px);
+}

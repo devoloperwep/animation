@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Card</title>
+    <link rel="stylesheet" href="../css/card.css" />
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://i.etsystatic.com/18154652/r/il/e19ff8/1633387329/il_570xN.1633387329_4yl9.jpg"
+        alt="img"
+        class="img"
+        width="300"
+        height="300"
+      />
+    </div>
+    <script>
+      let card = document.querySelector(".card");
+      card.addEventListener("mousemove", (e) => {
+        let rect = card.getBoundingClientRect();
+        let x = e.clientX - rect.left - rect.width / 2;
+        let y = e.clientY - rect.top - rect.height / 2;
+
+        let rotateX = (x / rect.height) * -30;
+        let rotateY = (y / rect.width) * -30;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+        let bgX = (x / rect.width) * 50 + 50;
+        card.style.backgroundPositionX = `${bgX}%`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = `perspective(1000px) rotateX(deg) rotateY(deg)`;
+        card.style.backgroundPositionX = ``;
+      });
+    </script>
+  </body>
+</html>
